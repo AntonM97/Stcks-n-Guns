@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WorkRequirements", menuName = "DataAssets/WorkRequirements")]
+[CreateAssetMenu(fileName = "WorkRequirements", menuName = "DataAssets/Works/WorkRequirements")]
 public class WorkRequirements : ScriptableObject
 {
     public enum StatRequired { intelligence, strength, charisma }
