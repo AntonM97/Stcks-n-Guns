@@ -6,11 +6,25 @@ public class User
     string Name { get; set; }
     List<Job> Active_jobs { get; set; } = [];
 
-	public Dictionary<string, int> Attributes = [];
+	public int Days { get; set; }
 
 	
 
-	public Player UsersPlayer { get; set; }
+	public string dayTime{
+		get{
+			return dayTime;
+		}
+		set{
+			List<String> validTimes = ["dawn", "late_morning", "afternoon", "dusk", "evening", "night", "late_night"];
+		}
+	}
+
+	public Dictionary<string, int> Attributes = [];
+
+
+	public List<String> UnlockedZones{get; set;} = [];
+
+    public Stickman UsersPlayer { get; set; }
 
 	public double cash{ get; set; } = 0;
 

@@ -1,10 +1,17 @@
 using System;
 namespace Scripts.Model;
 
-public class Building
+public abstract class Building
 {
-    public float openingTime{get; set;}
-    public float closingTime{get; set;}
+    public string name { get; set; }
 
-    public string name{get; set;}
+
+    //Every building type should have its own implementation on what happens on entrance
+    public abstract void enterBuilding();
+
+    public void leaveBuilding(){
+        //no need for different implementations here, every building is exited the same way
+    }
+
+    
 }

@@ -1,7 +1,7 @@
 using System;
 namespace Scripts.Model;
 
-public class NPC : Player
+public class NPC : StickMan
 {
     
 }

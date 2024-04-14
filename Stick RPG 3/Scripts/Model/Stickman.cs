@@ -1,7 +1,7 @@
 using System;
 namespace Scripts.Model;
 
-public class Player
+public class Stickman
 {
     public int Health{ get; set; }
 

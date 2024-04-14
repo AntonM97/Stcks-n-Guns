@@ -1,8 +1,7 @@
-using System.Collections.Generic;
+
 using System.Text.Json;
 using Scripts.Model;
-using Microsoft.VisualBasic;
-namespace help.Services;
+namespace Scripts.Services;
 
 public static class CurrentUserManager{
     
