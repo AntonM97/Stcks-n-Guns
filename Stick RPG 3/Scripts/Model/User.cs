@@ -8,7 +8,9 @@ public class User
 
 	public Dictionary<string, int> Attributes = [];
 
-	public int Health{ get; set; } = 100;
+	
+
+	public Player UsersPlayer { get; set; }
 
 	public double cash{ get; set; } = 0;
 
@@ -33,11 +35,19 @@ public class User
 		
 	}
 
+	public void respawn_player(){
+
+	}
+
 
 	public void resetAttributes(){
 		Attributes.Add("Karma", 0);
 		Attributes.Add("Intelligence", 0);
 		Attributes.Add("Strength", 0);
 		Attributes.Add("Charm", 0);
+	}
+
+	public void enter_building(Building building){
+		
 	}
 }
