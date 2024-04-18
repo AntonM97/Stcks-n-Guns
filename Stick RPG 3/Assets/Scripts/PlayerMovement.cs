@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _moveSpeed;
     [SerializeField] float _turnSpeed = 360;
 
+    [SerializeField] float _walkSpeed;
+    [SerializeField] float _runSpeed;
+    private bool isRunning;
+
 
     private void Start()
     {
@@ -28,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     void GatherInput()
     {
         _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        isRunning = Input.GetKey("left shift");
     }
 
     void Look()
@@ -47,6 +52,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
+        if(isRunning){
+            _moveSpeed=_runSpeed;
+        }else{
+            _moveSpeed=_walkSpeed;
+        }
+        
         _rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _moveSpeed * Time.deltaTime);
     }
 }

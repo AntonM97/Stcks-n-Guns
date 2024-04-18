@@ -8,7 +8,6 @@ public class AnimationStateController : MonoBehaviour
 
     bool isIdle;
     bool isWalking;
-    bool isRunnig;
     bool isAiming;
     bool isShooting;
     bool isPunching;
@@ -25,16 +24,31 @@ public class AnimationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // walk & run
         Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        if(input != Vector3.zero){
-            //animator.
-            //Is walking
-        }else if(input != Vector3.zero&& Input.GetKeyDown(KeyCode.LeftShift)){
-            //Is running
-        }else if(Input.GetKeyDown(KeyCode.Mouse2)){
-            //Block
+        bool isMoving = (input != Vector3.zero);
+        bool isAnimatingWalk = animator.GetBool("IsWalking");
+        bool isRunning = Input.GetKey("left shift");
+        
+        // aim & shoot
+
+        // fight & block
+
+
+        if(!isAnimatingWalk && isMoving){//start walking
+            animator.SetBool("IsWalking", true);
+        }else if (!isMoving){//stop walking
+            animator.SetBool("IsWalking", false);
+        }else if(isMoving && isRunning){//start running
+            animator.SetBool("IsRunning", true);
+        }else if(!isMoving || !isRunning){//stop running
+            animator.SetBool("IsRunning", false); 
+        }else if(Input.GetKey(KeyCode.Mouse2)){//start
+            animator.SetBool("IsBlocking", true);
+        }else if(Input.GetKeyUp(KeyCode.Mouse2)){
+            animator.SetBool("IsBlocking", false);
         }else if(Input.GetKeyDown(KeyCode.Mouse0)){
-            //Punch1
+            animator.SetBool("IsPunching1", true);
         }
         
     }
